@@ -1,0 +1,7 @@
+pyautogui
+psutil
+lib-platform
+py-cpuinfo
+GPUtil
+requests
+opencv-python
