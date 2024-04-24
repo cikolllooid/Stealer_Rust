@@ -34,7 +34,6 @@ def gather_system():
         current_directory = os.getcwd()
 
         host_name = socket.gethostname()
-        ip_address = socket.gethostbyname(host_name)
 
         network_info = {}
         for interface, addrs in psutil.net_if_addrs().items():
